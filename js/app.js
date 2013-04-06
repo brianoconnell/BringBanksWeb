@@ -16,6 +16,8 @@ $(function(){
                 title: "You!"
             });
             showLocation(pos);
+
+            populateMarkers(map);
         });
 
         trackerId = gps.watchPosition(function(pos){
@@ -38,4 +40,36 @@ function showLocation(pos) {
             }
         });
     }
+}
+
+var mapData;
+function populateMarkers(map) {
+    $.getJSON("data/data.json", function(data){
+        console.log("Success");
+        mapData = data;
+        $.each(data, function(index){
+            var latLong = new google.maps.LatLng(this.location.latitude, this.location.longitude);
+            var pinLocation = new google.maps.Marker({
+                position: latLong,
+                map: map,
+                title: this.location.area
+            });
+            pinLocation.hotspotid = index;
+            google.maps.event.addListener(pinLocation, "click", onMarkerClick)
+        })
+    }).fail(function(jqXhr, textStatus, error){
+            var err = textStatus + ", " + error;
+            console.log("Failure: " + err)
+        });
+}
+
+function onMarkerClick() {
+    var locationInfo = mapData[this.hotspotid];
+    var $details = $("#details");
+    $details.empty();
+    $details.append("<p>" + locationInfo.location.area + "</p>");
+    $details.append("<p>Cans: " + locationInfo.cans + "</p>");
+    $details.append("<p>Plastics: " + locationInfo.plastic + "</p>");
+    $details.append("<p>Glass: " + locationInfo.glass + "</p>");
+    $details.append("<p>Textiles: " + locationInfo.textiles + "</p>");
 }
