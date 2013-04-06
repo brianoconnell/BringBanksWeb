@@ -38,7 +38,7 @@ function showLocation(pos) {
 
 var mapData;
 function populateMarkers(map) {
-    $.getJSON("data/data.json", function(data){
+    $.getJSON("data/data.js", function(data){
         console.log("Success");
         mapData = data;
         $.each(data, function(index){
