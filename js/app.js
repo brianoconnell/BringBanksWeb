@@ -1,7 +1,8 @@
-var trackerId = 0;
 var geocoder;
 var userLocation = {};
 var map = {};
+var boolToStringOptions = {"trueString":"Yes", "falseString":"No"};
+
 $(function(){
     geocoder = new google.maps.Geocoder();
     if(navigator.geolocation){
@@ -18,13 +19,6 @@ $(function(){
             showLocation(pos);
 
             populateMarkers(map);
-        });
-
-        trackerId = gps.watchPosition(function(pos){
-            var latLong = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-            map.setCenter(latLong);
-            userLocation.setPosition(latLong);
-            showLocation(pos);
         });
     }
 });
@@ -67,9 +61,20 @@ function onMarkerClick() {
     var locationInfo = mapData[this.hotspotid];
     var $details = $("#details");
     $details.empty();
-    $details.append("<p>" + locationInfo.location.area + "</p>");
-    $details.append("<p>Cans: " + locationInfo.cans + "</p>");
-    $details.append("<p>Plastics: " + locationInfo.plastic + "</p>");
-    $details.append("<p>Glass: " + locationInfo.glass + "</p>");
-    $details.append("<p>Textiles: " + locationInfo.textiles + "</p>");
+    $details.append("<div>" + locationInfo.location.area + "</p>");
+    $details.append("<div>Cans: " + boolToString(locationInfo.cans, boolToStringOptions) + "</div>");
+    $details.append("<div>Plastics: " + boolToString(locationInfo.plastic, boolToStringOptions) + "</div>");
+    $details.append("<div>Glass: " + boolToString(locationInfo.glass, boolToStringOptions) + "</div>");
+    $details.append("<div>Textiles: " + boolToString(locationInfo.textiles, boolToStringOptions) + "</div>");
+}
+
+function boolToString(val, options){
+
+    var falseString = options.falseString || "False";
+    if(val === null || val === 'undefined'){
+        return falseString;
+    }
+
+    var trueString = options.trueString || "True";
+    return val ? trueString : falseString;
 }
