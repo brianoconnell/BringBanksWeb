@@ -1,3 +1,14 @@
 #directions {
   display: none;
 }
+
+@media all and (min-width: 55em) {
+  .myb.ui-grid-a {
+    .ui-block-a {
+      width: 66.6%;
+    }
+    .ui-block-b {
+      width: 33.4%;
+    }
+  }
+}
