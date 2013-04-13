@@ -2,13 +2,48 @@
   display: none;
 }
 
+.myb #map-canvas {
+  min-height:300px;
+}
+
+.header, footer, .myb {
+  width: 100%;
+}
+
+.myb {
+  .ui-block-a,
+  .ui-block-b {
+    width: 100%;
+    float: none;
+  }
+}
+
+@media all and (min-width: 36em) {
+  .myb {
+    .ui-block-a,
+    .ui-block-b {
+      float:left;
+      width:49.95%;
+    }
+
+    #map-canvas {
+      min-height: 400px;
+    }
+  }
+}
 @media all and (min-width: 55em) {
-  .myb.ui-grid-a {
+  .myb {
     .ui-block-a {
       width: 66.6%;
+      min-height: 500px;
     }
     .ui-block-b {
       width: 33.4%;
     }
+
+    #map-canvas {
+      min-height: 700px;
+    }
   }
 }
+
