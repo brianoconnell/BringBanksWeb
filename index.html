@@ -7,10 +7,12 @@
     <title>Dublin Bring Banks</title>
 </head>
 <body>
-    <div id="index" data-role="page" data-theme="a" data-content-theme="a">
-        <div data-role="header"><h1>Home</h1></div>
-        <div class="ui-grid-a myb">
-
+    <div id="index" data-role="page" data-theme="c" data-content-theme="c">
+        <div data-role="header">
+            <h1>Dublin Bring Banks</h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext">Options</a>
+        </div>
+        <div class="ui-grid-a myb" data-role="content">
             <div class="ui-block-a">
                 <div data-role="content">
                     <div id="map-canvas"></div>
@@ -25,10 +27,19 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <div data-role="footer" data-position="fixed"><h4>This is the footer</h4></div>
+
+        <div id="left-panel" data-role="panel" data-display="overlay" data-theme="c">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#index" data-rel="close" data-icon="delete">Close</a></li>
+            </ul>
+            <form>
+                <label for="slider-max-locations">Locations to display</label>
+                <input type="range" name="slider-max-locations" id="slider-max-locations" min="1" max="20" value="10">
+            </form>
+        </div>
     </div>
+
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.mobile-1.3.0.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>

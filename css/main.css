@@ -1,8 +1,14 @@
 #directions {
   display: none; }
 
-.myb #map-canvas {
+#map-canvas {
   min-height: 300px; }
+
+#location-name {
+  font-size: 1em; }
+
+#left-panel ul {
+  margin-bottom: 1em; }
 
 .header, footer, .myb {
   width: 100%; }
@@ -18,7 +24,9 @@
     float: left;
     width: 49.95%; }
   .myb #map-canvas {
-    min-height: 400px; } }
+    min-height: 400px; }
+  .myb #location-name {
+    font-size: 1.2em; } }
 @media all and (min-width: 55em) {
   .myb .ui-block-a {
     width: 66.6%;
@@ -26,4 +34,6 @@
   .myb .ui-block-b {
     width: 33.4%; }
   .myb #map-canvas {
-    min-height: 700px; } }
+    min-height: 700px; }
+  .myb #location-name {
+    font-size: 1.5em; } }
