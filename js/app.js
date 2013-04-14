@@ -121,16 +121,6 @@
         $("#directions").show();
     }
 
-    function boolToString(val, options) {
-
-        var falseString = options.falseString || "False";
-        if (val === null || val === 'undefined') {
-            return falseString;
-        }
-
-        var trueString = options.trueString || "True";
-        return val ? trueString : falseString;
-    }
     var slidermaxLocationCountTimeout;
     function onLocationCountSliderChange() {
         // use a timeout so the map markers are only updated after the user has finished selecting a value on the range
@@ -142,6 +132,17 @@
             setClosestBringBanks(userLocation.position, locationsCount);
             addMarkers();
         }, 500);
+    }
+
+    function boolToString(val, options) {
+
+        var falseString = options.falseString || "False";
+        if (val === null || val === 'undefined') {
+            return falseString;
+        }
+
+        var trueString = options.trueString || "True";
+        return val ? trueString : falseString;
     }
 
     // Adapted from http://www.movable-type.co.uk/scripts/latlong.html
