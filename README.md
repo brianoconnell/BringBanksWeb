@@ -1,6 +1,7 @@
 Dublin Bring Banks
 ==================
-Web based app to locate and get directions to bring banks/recycling centres in South Dublin and Fingal County Councils
+Web based app to locate and get directions to bring banks/recycling centres in South Dublin and Fingal County Councils.
+Live demo [here](http://madd-ca2.azurewebsites.net).
 
 Features
 --------
