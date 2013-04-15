@@ -147,7 +147,7 @@
 
     // Adapted from http://www.movable-type.co.uk/scripts/latlong.html
     function calculateDistance(origin, target) {
-        const EARTH_RADIUS = 6371; // Kilometers
+        var EARTH_RADIUS = 6371; // Kilometers
 
         var deltaLatitude = degreesToRadians(target.latitude - origin.latitude);
         var deltaLongitude = degreesToRadians(target.longitude - origin.longitude);
