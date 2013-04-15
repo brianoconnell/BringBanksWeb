@@ -13,6 +13,10 @@
 .header, footer, .myb {
   width: 100%; }
 
+.ui-grid-a {
+  padding-left: 0px;
+  padding-top: 0px; }
+
 .myb .ui-block-a,
 .myb .ui-block-b {
   width: 100%;
